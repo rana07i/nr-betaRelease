@@ -1,0 +1,12 @@
+// Block level inputs
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 28px;        
+  .box-sizing(border-box); 
+}
+
+body {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 14pt;
+}

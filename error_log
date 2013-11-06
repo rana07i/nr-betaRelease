@@ -1,0 +1,2 @@
+[06-Nov-2013 17:21:17 Asia/Jakarta] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/k2459657/public_html/newsroom/gettext.php on line 31
+[06-Nov-2013 17:21:17 Asia/Jakarta] PHP Warning:  file_get_contents(naskah/2013-11/07/-.html): failed to open stream: No such file or directory in /home/k2459657/public_html/newsroom/gettext.php on line 39

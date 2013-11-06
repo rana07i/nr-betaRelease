@@ -1,0 +1,7 @@
+
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^newsroom\.harian\-nasional\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.newsroom\.harian\-nasional\.com$
+RewriteRule ^/?$ "http\:\/\/harian\-nasional\.com\/newsroom" [R=301,L]
+

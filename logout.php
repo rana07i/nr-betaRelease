@@ -1,0 +1,9 @@
+<?php
+	ob_start();	
+	session_start();
+	unset($_SESSION['username']);
+	unset($_SESSION['namaLengkap']);
+	session_destroy();
+	header("location:index.php");
+	ob_flush();
+?>
