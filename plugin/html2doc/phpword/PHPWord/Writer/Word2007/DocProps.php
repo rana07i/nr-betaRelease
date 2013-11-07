@@ -25,7 +25,6 @@
  * @version    Beta 0.6.3, 08.07.2011
  */
 
-date_default_timezone_set("Asia/Jakarta");
 
 class PHPWord_Writer_Word2007_DocProps extends PHPWord_Writer_Word2007_WriterPart {
 

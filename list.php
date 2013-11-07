@@ -1,5 +1,5 @@
 <?php
-	$con = mysqli_connect("localhost","k2459657_nruser","@harianNasional","k2459657_newsroom");
+	$con=mysqli_connect("localhost","root","","newsroom");
 	
 	if (mysqli_connect_errno()){
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -66,8 +66,6 @@
 					$sqlcre = mysqli_query($con,$queryCreated);
 					$recordcre = mysqli_fetch_array ($sqlcre);
 					$createdat = $recordcre['createdAt'];
-					$createdat = strtotime($createdat) + 25200; // Add 7 hour
-					$createdat = date('Y-m-d H:i:s', $createdat );
 					
 					$queryLastEdit = "SELECT createdAt as edited FROM tblberita_log 
 						WHERE idBerita='$record[idBerita] AND editor is not null' 
@@ -76,8 +74,6 @@
 					$sqlled = mysqli_query($con,$queryLastEdit);
 					$recordled = mysqli_fetch_array ($sqlled);
 					$tglLastEdit = $recordled['edited'];
-					$tglLastEdit = strtotime($tglLastEdit ) + 25200; // Add 7 hour
-					$tglLastEdit = date('Y-m-d H:i:s', $tglLastEdit );
 		    ?>
 			<tr>
 				<td>

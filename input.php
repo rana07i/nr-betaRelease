@@ -22,7 +22,7 @@
 				
 			<option></option>
 			<?php	
-				$con = mysqli_connect("localhost","k2459657_nruser","@harianNasional","k2459657_newsroom");
+				$con=mysqli_connect("localhost","root","","newsroom");
 
 				$queryUser="SELECT halaman, idHalaman FROM tblhalaman WHERE aktif='1' ORDER BY halaman ASC";
 				$sql = mysqli_query($con,$queryUser);	

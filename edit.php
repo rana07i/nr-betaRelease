@@ -1,6 +1,6 @@
 <?php
 
-	$con = mysqli_connect("localhost","k2459657_nruser","@harianNasional","k2459657_newsroom");
+	$con=mysqli_connect("localhost","root","","newsroom");
 	
 	if (isset($_GET['idBerita'])) {
 		$idBerita = $_GET['idBerita'];
@@ -42,7 +42,7 @@
 				$statusBerita = '3';
 			}
 			
-		$con = mysqli_connect("localhost","k2459657_nruser","@harianNasional","k2459657_newsroom");
+		$con=mysqli_connect("localhost","root","","newsroom");
 		
 		$query = "UPDATE tblberita SET halaman='$_POST[hal]', rubrikBerita='$_POST[rub]', judulBerita='$judul', kota='$_POST[kota]', isiBerita='$isiBerita', editor='$_SESSION[iduser]', statusBerita='$statusBerita' WHERE idBerita='$idBerita'";
 		$sql = mysqli_query ($con,$query);
@@ -60,7 +60,7 @@
 		$judul = htmlentities(addslashes($_POST['judul']));
 		$statusBerita = '3';
 			
-		$con = mysqli_connect("localhost","k2459657_nruser","@harianNasional","k2459657_newsroom");
+		$con=mysqli_connect("localhost","root","","newsroom");
 		
 		$query = "UPDATE tblberita SET halaman='$_POST[hal]', rubrikBerita='$_POST[rub]', judulBerita='$judul', kota='$_POST[kota]', isiBerita='$isiBerita', editor='$_SESSION[iduser]', statusBerita='$statusBerita' WHERE idBerita='$idBerita'";
 		$sql = mysqli_query ($con,$query);
