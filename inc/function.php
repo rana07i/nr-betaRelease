@@ -34,8 +34,8 @@
 						ORDER BY createdAt ASC	
 						LIMIT 1";
 		$sqlExecute = mysqli_query($con,$queryCreated);
-		$record1 = mysqli_fetch_array ($sqlExecute);
-		$createdat = $record1['createdAt'];
+		$record = mysqli_fetch_array ($sqlExecute);
+		$createdat = $record['createdAt'];
 		echo $createdat;
 	}
 		
@@ -46,5 +46,20 @@
 		$filename = str_replace(":", "[titikdua]", $filename);
 		$filename = $hal."-".str_replace(":", "", $filename);
 		return $filename;
+	}
+	
+	function namaLengkap($con,$idberita){
+		$queryGetName = "SELECT tbluser.firstName AS fname, tbluser.midleName AS mname,
+					tbluser.lastName AS lname, tblberita.idBerita AS idBerita
+					FROM tblberita
+					INNER JOIN tbluser ON tbluser.iduser = tblberita.penulisBerita
+					WHERE tblberita.idBerita ='$idberita'";
+		$sqlExecute = mysqli_query($con,$queryGetName);		
+		$record = mysqli_fetch_array ($sqlExecute);
+		$fname = $record['fname'];
+		$mname = $record['mname'];
+		$lname = $record['lname'];
+		$penulisBerita = $fname." ".$mname." ".$lname;
+		return $penulisBerita;
 	}
 ?>

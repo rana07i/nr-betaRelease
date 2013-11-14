@@ -1,4 +1,5 @@
 <?php 
+	date_default_timezone_set("Asia/Jakarta");
 	/**
 	*  Example of use of HTML to docx converter
 	*/
@@ -13,7 +14,7 @@
 	// Functions to support this example.
 	require_once 'plugin/html2doc/documentation/support_functions.inc';
 	
-	$con=mysqli_connect("localhost","root","","newsroom");
+	$con = mysqli_connect("localhost","k2459657_nruser","@harianNasional","k2459657_newsroom");
 	
 	if (isset($_GET['idBerita'])) {
 		$idBerita = $_GET['idBerita'];
@@ -21,11 +22,10 @@
 		die ("Error. No idBerita Selected! ");	
 	}
 
-	$query = "SELECT tblHalaman.Halaman as Hal,   
-				tblberita.judulBerita AS Judul
-				FROM tblberita 
-				LEFT JOIN tblhalaman ON tblberita.halaman = tblhalaman.idHalaman 
-				WHERE idBerita='$idBerita'";
+	$query = "SELECT tblhalaman.Halaman as Hal, tblberita.judulBerita AS Judul ".
+			"FROM tblberita ".
+			"LEFT JOIN tblhalaman ON tblberita.halaman = tblhalaman.idHalaman ".
+			"WHERE idBerita='$idBerita'";
 	$sql = mysqli_query ($con,$query);
 	$record = mysqli_fetch_array ($sql);
 
@@ -34,8 +34,9 @@
 	$tglBerita = date('d', time()+86400); //tanggal besok
 	
 	$dailyNaskah = 'naskah/'.$periode.'/'.$tglBerita.'/';
-	$filehtml = $dailyNaskah.fileHtmlName($record['Hal'],$record['Judul']);
-	$html = file_get_contents($filehtml.".html");
+	$filehtml = fileHtmlName($record['Hal'],$record['Judul']);
+	$filepath = $dailyNaskah.$filehtml;
+	$html = file_get_contents($filepath .".html");
 	 
 	// New Word Document:
 	$phpword_object = new PHPWord();

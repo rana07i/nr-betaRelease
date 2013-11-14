@@ -1,8 +1,9 @@
 <?php 
 	require_once 'plugin/pathToPHPDocX/classes/CreateDocx.inc';
 	require_once 'inc/function.php';
+	date_default_timezone_set("Asia/Jakarta");
 	
-	$con=mysqli_connect("localhost","root","","newsroom");
+	$con = mysqli_connect("localhost","k2459657_nruser","@harianNasional","k2459657_newsroom");
 	
 	if (isset($_GET['idBerita']) and isset($_GET['idUser'])) {
 		$idBerita = $_GET['idBerita'];
@@ -17,15 +18,15 @@
 	$query = "UPDATE tblberita SET layouter='1' WHERE idBerita='$idBerita'";
 	$sql = mysqli_query ($con,$query);
 	
-	$query = "SELECT tblHalaman.Halaman as Hal, tblrubrik.namaRubrik AS Rubrik,  
-				tblberita.judulBerita AS Judul, tblberita.kota AS Kota, 
-				tblberita.isiBerita AS Naskah, tbluser.uname As Penulis,
-				tblberita.penulisBerita AS idPenulis
-				FROM tblberita 
-				LEFT JOIN tblhalaman ON tblberita.halaman = tblhalaman.idHalaman 
-				LEFT JOIN tblrubrik ON tblberita.rubrikBerita = tblrubrik.idRubrik 
-				LEFT JOIN tbluser ON tblberita.penulisBerita = tbluser.iduser
-				WHERE idBerita='$idBerita'";
+	$query = "SELECT tblhalaman.Halaman as Hal, tblrubrik.namaRubrik AS Rubrik, ". 
+				"tblberita.judulBerita AS Judul, tblberita.kota AS Kota, ". 
+				"tblberita.isiBerita AS Naskah, tbluser.uname As Penulis, ".
+				"tblberita.penulisBerita AS idPenulis ".
+				"FROM tblberita ".
+				"LEFT JOIN tblhalaman ON tblberita.halaman = tblhalaman.idHalaman ".
+				"LEFT JOIN tblrubrik ON tblberita.rubrikBerita = tblrubrik.idRubrik ".
+				"LEFT JOIN tbluser ON tblberita.penulisBerita = tbluser.iduser ".
+				"WHERE idBerita='$idBerita'";
 	$sql = mysqli_query ($con,$query);
 	$record = mysqli_fetch_array ($sql);
 	
@@ -51,12 +52,12 @@
 	
 	// create folder if not exist
 	if (!file_exists('naskah')) {
-    mkdir('naskah', 0777, true);
+   		mkdir('naskah', 0777, true);
 	}
 	$dailyNaskah = 'naskah/'.$periode.'/'.$tglBerita;
 	
 	if (!file_exists($dailyNaskah)) {
-    mkdir($dailyNaskah, 0777, true);
+   		mkdir($dailyNaskah, 0777, true);
 	}
 	
 	$fp = fopen($dailyNaskah."/".fileHtmlName($record['Hal'],$record['Judul']).".html","wb");
@@ -64,5 +65,4 @@
 	fclose($fp);
 	
 	header("location:index.php");
-
-?>	
+?>

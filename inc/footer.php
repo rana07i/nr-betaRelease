@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
 	<script type="text/javascript" src="js/bootstrap-tooltip.js"></script>
 	<script type="text/javascript" src="js/locales/bootstrap-datepicker.id.js"></script>
-	<script type="text/javascript" src="js/locales/bootstrap-formhelpers-selectbox.js"></script>
+	<script type="text/javascript" src="js/bootstrap-formhelpers-selectbox.js"></script>
 	<!-- script type="text/javascript" src="js/jquery.shorten.js"></script >
 	<script type="text/javascript" src="js/readmore.js"></script -->
 	<script type="text/javascript" src="plugin/tinymce/tiny_mce.js"></script>
@@ -16,7 +16,7 @@
 		- bootstrap-datepicker.id.js
 	-->
 	<script>
-		$('#tglSurat').datepicker({
+		$('#tgl').datepicker({
 		format: 'dd/mm/yyyy',
 		language: 'id',
 		});
@@ -50,7 +50,7 @@
 			plugins : "htmlcharcount,wordcount,autolink,lists,pagebreak,style,table,save,paste,visualchars,autosave,autoresize",
 
 			// Theme options
-			theme_advanced_buttons1 : "cut,paste,undo,redo,|,bold,italic,underline,|,bullist,numlist,|,fontsizeselect",
+			theme_advanced_buttons1 : "undo,redo,|,bold,italic,underline,|,bullist,numlist,|,fontsizeselect",
 			
 			theme_advanced_toolbar_location : "top",
 			theme_advanced_toolbar_align : "left",

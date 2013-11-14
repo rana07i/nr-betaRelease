@@ -55,6 +55,8 @@
 			switch ($screen) {
 				case 'logout' : include "logout.php"; break;
 				case 'rpasswd' : include "resetpass.php"; break;
+				case 'layout' : include "listLayout.php"; break;
+				case 'layoutf' : include "listLayoutFilter.php"; break;
 				case 'main' : include "listLayout.php";
 				// default : 					
 			}
@@ -63,6 +65,7 @@
 			$screen = (isset($_GET['screen']))? $_GET['screen'] : "main";
 			switch ($screen) {
 				case 'list': include "list.php"; break;
+				case 'listexp': include "listExp.php"; break;
 				case 'listByUser': include "listByUser.php"; break;
 				case 'layout' : include "listLayout.php"; break;
 				case 'input': include "input.php"; break;

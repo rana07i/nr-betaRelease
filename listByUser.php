@@ -1,5 +1,5 @@
 <?php
-	$con=mysqli_connect("localhost","root","","newsroom");
+	$con = mysqli_connect("localhost","k2459657_nruser","@harianNasional","k2459657_newsroom");
 	
 	if (mysqli_connect_errno()){
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -37,6 +37,8 @@
 					$sqlExecute = mysqli_query($con,$queryCreated);
 					$record1 = mysqli_fetch_array ($sqlExecute);
 					$createdat = $record1['createdAt'];
+					$createdat = strtotime($createdat ) + 25200; // Add 7 hour
+					$createdat = date('Y-m-d H:i:s',$createdat);			 
 		    ?>
 			<tr>
 				<td>

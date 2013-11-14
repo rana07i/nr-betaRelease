@@ -15,7 +15,7 @@
 
 	<?php
 
-		$con=mysqli_connect("localhost","root","","newsroom");
+		$con = mysqli_connect("localhost","k2459657_nruser","@harianNasional","k2459657_newsroom");
 		
 		if (mysqli_connect_errno()){
 		  echo "Failed to connect to MySQL: " . mysqli_connect_error();
